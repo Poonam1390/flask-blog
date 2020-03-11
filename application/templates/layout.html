@@ -1,13 +1,20 @@
 <html>
-<a href="{{ url_for('about') }}">About Page</a>
-<a href="{{ url_for('register') }}">Register Page</a>
+    <head>
+        <title>{{ title  }}</title>
+        </head>
 
-<head>
-<title>{{ title  }}</title>
-</head>
-<body>
-{% block body_content %}
-{% endblock body_content %}
-
-</body>    
+    
+    {% if current_user.is_authenticated %}
+    <a href="{{ url_for('about') }}">About Page</a>
+    <a href="{{ url_for('post') }}">Posts</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+    <a href="{{ url_for('about') }}">About Page</a>
+    <a href="{{ url_for('register') }}">Register Here</a>
+    <a href="{{ url_for('login') }}">Login</a>
+    <a href="{{ url_for('home') }}">|Home Page</a>
+    {% endif %}
+    {% block body_content %}
+    {% endblock body_content %}
+       
 </html>
