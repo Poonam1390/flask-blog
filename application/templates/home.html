@@ -5,9 +5,10 @@
 <p>Welcome to this web app!</p>
 {% for post in posts %}
     <div>
-        <h4>{{ post.first_name }}</h4>
         <h3>{{ post.title }}</h3>
-{% endfor %}       
-        
+        <span>by <i>{{ post.author.first_name }} {{ post.author.last_name }}</i></span>
+        <span>on the <i>{{ post.date_posted }}</i></span>
+        <p>{{ post.content }}</p>
     </div>
+{% endfor %}       
 {% endblock body_content %}
